@@ -1,0 +1,197 @@
+body {
+	font-family: "Arial";
+}
+
+b.mand_f {
+	color: red;
+}
+			
+.tabSheetContainer, .hiddenElements, #buttonRefresh{
+	display: none;
+}
+			
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid black;
+	font-size: 1em;
+}
+
+th {
+	background-color: #36304a;
+	color: white;
+}
+
+img.img_arrow {
+	width: 10px;
+	height: 10px;
+}
+
+.decisionGreen {
+	color: green;
+	font-weight: bold;
+}
+
+.decisionRed {
+	color: red;
+	font-weight: bold;
+}
+
+.missingWeek {
+	 background-color: #f5f5f5;
+}
+
+.customerImg{
+	display: inline;
+	max-width:30px;
+	max-height:30px;
+	width: auto;
+	height: auto;
+}
+
+.teImg{
+	display: inline;
+	max-width:50px;
+	max-height:50px;
+	width: auto;
+	height: auto;
+}
+
+img#preloader {
+	display: none;
+}
+
+/*glow button*/
+.glowbutton {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  /*color: #FFFFFF;*/
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #00beec; -webkit-box-shadow: 0 0 3px #00beec; }
+  50% { background-color: #80e5ff; -webkit-box-shadow: 0 0 40px #80e5ff; }
+  100% { background-color: #00beec; -webkit-box-shadow: 0 0 3px #00beec; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #00beec; -moz-box-shadow: 0 0 3px #00beec; }
+  50% { background-color: #80e5ff; -moz-box-shadow: 0 0 40px #80e5ff; }
+  100% { background-color: #00beec; -moz-box-shadow: 0 0 3px #00beec; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #00beec; box-shadow: 0 0 3px #00beec; }
+  50% { background-color: #80e5ff; box-shadow: 0 0 40px #80e5ff; }
+  100% { background-color: #00beec; box-shadow: 0 0 3px #00beec; }
+}
+
+@keyframes glowing {
+  0% { background-color: #00beec; box-shadow: 0 0 3px #00beec; }
+  50% { background-color: #80e5ff; box-shadow: 0 0 40px #80e5ff; }
+  100% { background-color: #00beec; box-shadow: 0 0 3px #00beec; }
+}
+
+/*overlay*/
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(255,255,255); /* white fallback color */
+    background-color: rgb(255,255,255); 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 15%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.overlay p, .overlay table {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+	margin-left: auto;
+	margin-right: auto;
+	width: 8em
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/*style for html to pdf*/
+    @CHARSET "UTF-8";
+    .page-break {
+      page-break-after: always;
+      page-break-inside: avoid;
+      clear:both;
+    }
+    .page-break-before {
+      page-break-before: always;
+      page-break-inside: avoid;
+      clear:both;
+    }
+    #html-2-pdfwrapper{
+      position: absolute; 
+      left: 20px; 
+      top: 50px; 
+      bottom: 0; 
+      overflow: auto; 
+      width: 600px;
+    }

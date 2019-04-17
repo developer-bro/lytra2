@@ -1,0 +1,434 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="CSS/bootstrap-grid.css" />
+	<link rel="stylesheet" href="CSS/bootstrap-grid.min.css" />
+	<link href="CSS/bootstrap-reboot.css" rel="stylesheet" />
+	<link href="CSS/bootstrap-reboot.min.css" rel="stylesheet" />
+	<link href="CSS/bootstrap-grid.css" rel="stylesheet" />
+	<link href="CSS/bootstrap-grid.min.css" rel="stylesheet" />
+	<link href="CSS/bootstrap.min.css" rel="stylesheet" />
+	<link href="CSS/custom.css" rel="stylesheet" />
+	<link href="css_old/font-awesome.min.css" rel="stylesheet" />
+	<link href="css_old/ie9.css" rel="stylesheet" />
+
+	<link href="css_old/style.css" rel="stylesheet" />
+	<title>Liability Tracker</title>
+	<script type="text/javascript" src="https://insights.connect.te.com/javascripts/api/tableau-2.min.js"></script>
+	<script type="text/javascript" src="js_old/add.js"></script>
+	<script type="text/javascript" src="js_old/logic.js"></script>
+	<script type="text/javascript" src="JS/jspdf.min.js"></script>
+	<script type="text/javascript" src="JS/jspdf.plugin.autotable.min.js"></script>
+	<script type="text/javascript" src="JS/sweetalert.min.js"></script>
+
+</head>
+
+<body style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;overflow: auto;">
+
+
+	<!--  -->
+
+	<div class="modal fade bs-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+		aria-hidden="true" id="onload" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog modal-lg modal-dialog-centered ">
+			<div class="modal-content">
+
+
+				<div class="modal-header">
+					<h4 class="modal-title">TE CONNECTIVITY</h4>
+				</div>
+
+				<div class="modal-body">
+					<div class="form-row">
+
+						<label for="inputEmail3" class="col-sm-3 col-form-label">Customer Req</label>
+						<div class="col-sm-9">
+							<select class="form-control" class="form-control" id="week_type"
+								placeholder="Order/SA Item#" required>
+								<option value="Ship">Ship</option>
+								<option value="Dock">Dock</option>
+							</select>
+						</div>
+
+						<label for="inputEmail3" class="col-sm-3 col-form-label mt-4">select week</label>
+						<div class="col-sm-9 mt-4">
+							<select id="week" class="form-control" placeholder="Order/SA Item#" required>
+								<option value="" disabled >Select Week</option>
+								<option value="01">1</option>
+								<option value="02">2</option>
+								<option value="03">3</option>
+								<option value="04">4</option>
+								<option value="05">5</option>
+								<option value="06">6</option>
+								<option value="07">7</option>
+								<option value="08">8</option>
+								<option value="09">9</option>
+								<option value="10">10</option>
+								<option selected value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+								<option value="51">51</option>
+								<option value="52">52</option>
+							</select>
+						</div>
+
+						<label for="inputEmail3" class="col-sm-3 col-form-label mt-4">Select Year</label>
+						<div class="col-sm-9 mt-4 ">
+							<select class="form-control" class="form-control" id="year" placeholder="Order/SA Item#"
+								required>
+								<option selected value="" style="">Select Year</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option selected value="2019" >2019</option>
+							</select>
+						</div>
+
+						<label for="validationCustom01" class="col-sm-3 col-form-label mt-4">Order/SA #</label>
+						<div class="col-sm-9 mt-4 ">
+							<input type="text" class="input_text form-control" name="validationCustom01" id="order no"
+								placeholder="Order/SA #" onkeyup="disableInputFields(this.id,this.value)" required>
+							</label>
+						</div>
+
+						<label for="validationCustom02" class="col-sm-3 col-form-label mt-4">Order/SA Item# </label>
+						<div class="col-sm-9 mt-4">
+							<input type="text" class="input_text form-control" name="validationCustom02"
+								id="order item no" placeholder="Order/SA Item#" onkeyup="disableInputFields(this.id,this.value)" onblur="validate_order_item_no(this.id,this.value)" required>
+						</div>
+
+						<label for="validationCustom02" class="col-sm-3 col-form-label mt-4">Sold To</label>
+						<div class="col-sm-9 mt-4">
+							<input value="0002991673" type="text" class="input_text form-control"
+								name="validationCustom03" id="sold to no" placeholder="Sold To"
+								 onkeyup="disableInputFields(this.id,this.value)" onblur="validate_shipto_soldto_num(this.id,this.value)" required>
+						</div>
+
+						<label for="validationCustom02" class="col-sm-3 col-form-label mt-4">Ship To #</label>
+						<div class="col-sm-9 mt-4">
+							<input type="text" class="input_text form-control" name="validationCustom04" id="ship to no"
+								placeholder="Ship To #" onkeyup="disableInputFields(this.id,this.value)" onblur="validate_shipto_soldto_num(this.id,this.value)" required>
+						</div>
+
+						<label for="validationCustom02" class="col-sm-3 col-form-label mt-4">Material #</label>
+						<div class="col-sm-9 mt-4">
+							<input value="968137-2" type="text" class="input_text form-control"
+								name="validationCustom05" id="material no" placeholder="Material #"
+								onkeyup="disableInputFields(this.id,this.value)" required>
+						</div>
+
+						
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-4 mt-2">
+							<div id="buttonSection">
+								<button type="submit" class="btn btn-primary" id="buttonSubmit"
+									onclick="buttonClick(this.innerHTML)">Submit</button>
+							</div>
+							<img id="preloader" src="Images/l.gif" style="width:50px;" />
+						</div>
+
+						<div class="col-sm-4 mt-2">
+							<button class="myButton btn btn-primary " id="buttonRefresh"
+								onclick="resetVariables()">Refresh</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--  -->
+	<!--  -->
+
+	<!-- navbar -->
+	<br>
+	<br>
+		<nav class="navbar fixed-top navbar-light bg-light navbar-custom">
+			<a class="navbar-brand" href="#">
+			  <img src="images/te.png"  height="50px" class="d-inline-block align-top" alt="">
+			</a>
+	
+			<ul class="nav navbar-nav navbar-center">
+			  <li><a href="#" style="color:white;"><strong>WELCOME TO THE LIABILITY TRACKER</strong></a></li>
+			  
+		  </ul>
+	</nav>
+	<!--  -->
+
+	<div class="container-fluid mt-4" id="content">
+		<div class="row">
+			<div class="col-md-4 mt-4 ">
+				<div class="card side-card h-100">
+					<div class="card-body">
+						<ul style="list-style-type:none;">
+							<!-- <li>
+									<span style="font-size: 1em; line-height: 21px;"><b>Week:</b></span>
+								</li>
+								<li>
+									<span style="font-size: 1em; line-height: 21px;"><b>Year:</b></span>
+								</li> -->
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Order #:</b></span>
+								<span id="Ord_num_p" class="output_text" style="width:20px;display:inline;"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Ship To #:</b></span>
+								<span id="Ship_to_num_p" class="output_text" style="width: 20px;display:inline;"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Ship To Name:</b></span>
+								<span style="width:20px;display:inline;" id="Ship_to_name_p" class="output_text"></
+										</li> <li>
+									<span style="font-size: 1em; line-height: 21px;"><b>Order Item #:</b></span>
+									<span style="width:20px;display:inline;" id="order_item_num_p" class="output_text">
+									</span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Sold To #:</b></span>
+								<p id="sold_to_num_p" class="output_text" style="display:inline;"></p>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Sold To Name:</b></span>
+								<span style="width:20px;display:inline;" id="sold_to_name_p" class="output_text"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Sales Org:</b></span>
+								<span style="width:20px;display:inline;" id="Sales_org_p" class="output_text"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>World Wide #:</b></span>
+								<span style="width:20px;display:inline;" id="wwnum_p" class="output_text"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>World Wide Name:</b></span>
+								<span style="width:20px;display:inline;" id="wwname_p" class="output_text"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>Material #:</b></span>
+								<span style="width:20px;display:inline;" id="mat_num_p" class="output_text"></span>
+							</li>
+							<li>
+								<span style="font-size: 1em; line-height: 21px;"><b>DDP #:</b></span>
+								<span style="width:20px;display:inline;" id="ddp_no_p" class="output_text"></span>
+							</li>
+
+
+							<li id="period" class="output_text">
+
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<p class="card-text">Long Term Flexibility</p>
+								<div class="" id="ltf_status">
+									<div class="spinner">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<p class="card-text">Short Term Flexibility</p>
+								<div id="stf_status">
+									<div class="spinner">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<p class="card-text">Safety Stock</p>
+								<div id="ss_status">
+									<div class="spinner">
+										<!-- <img id="ss_est" class="output_image" style="height:20px;" /> -->
+										<!-- <img id="ss_not_est" class="output_image" style="height:20px;" /><br /> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<!-- <p class="card-text">Long Term Forecast</p> -->
+								<a id="logic1_button" class="data_button"><b>Long Term Forecast</b></a>
+								<div id="dvt1_status">
+									<div class="spinner">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<!-- <p class="card-text">Short Term Forecast</p> -->
+								<a id="logic2_button" class="data_button"><b>Short Term Forecast</b></a>
+
+								<div id="dvt2_status">
+									<div class="spinner">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<p class="card-text">Period selection</p>
+								<div id="period_status">
+									<div class="spinner">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mt-4">
+						<div class="card text-center card-green">
+							<div class="card-body">
+								<p id="contract_type" class="card-text">Contract Type</p>
+
+								<div id="mts_status">
+									<div class="spinner">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 mt-4">
+						<div class="card text-center">
+							<div class="card-body">
+								<p class="card-text" style="margin-bottom:32px;">Final Decision</p>
+								<div class="row justify-content-center">
+									<div id="fd_liabla">
+										<div class="spinner">
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 mt-4">
+						<button id="order_summary_button" class="data_button btn btn-block white-button">Order
+							Summary</button>
+					</div>
+					<div class="col-md-6 mt-4">
+						<button id="pdf_button" class="data_button btn btn-block" data-dismiss="modal">Generate
+							PDF</button>
+						<!-- <p id="pdf_button" class="data_button" style="width: 60%; font-size: 1em; line-height: 21px;">
+								Generate PDF</p> -->
+					</div>
+
+					<div class="col-md-12 mt-3">
+						<button onclick="window.location.reload();"
+							class="btn btn-primary btn-block black-button">New
+							Search</button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!--  -->
+
+
+
+
+	<div id="vizContainer0" class="tabSheetContainer" style="width:1000px; height:120px;"></div>
+	<div id="vizContainer1" class="tabSheetContainer" style="width:1400px; height:120px;"></div>
+	<div id="vizContainer2" class="tabSheetContainer" style="width:1200px; height:400px;"></div>
+	<div id="vizContainer3" class="tabSheetContainer" style="width:800px; height:120px;"></div>
+	<div id="vizContainer4" class="tabSheetContainer" style="width:800px; height:120px;"></div>
+	<div id="vizContainer5" class="tabSheetContainer" style="width:800px; height:120px;"></div>
+	<div id="vizContainer6" class="tabSheetContainer" style="width:800px; height:120px;"></div>
+
+	<!-- overlay -->
+	<div id="dataOverlay" class="overlay">
+
+		<!-- Button to close the overlay navigation -->
+		<a href="javascript:void(0)" class="closebtn" onclick="closeDataOverlay()">&times;</a>
+
+		<!-- Overlay content -->
+		<div id="contentDataOverlay" class="overlay-content"></div>
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script>
+		$(window).load(function () {
+			// stateChange();
+			$('#onload').modal('show');
+		});
+	</script>
+</body>
+
+</html>

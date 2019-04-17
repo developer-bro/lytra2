@@ -1,0 +1,322 @@
+﻿#main_title {
+    text-align: center;
+    
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+}
+p#main_title_text {
+    color: white;
+}
+
+p {
+    width: 100%;
+}
+/* input[type=text] {
+    border: 1px solid #e98300;
+    border-radius: 1px;
+} */
+.select1 {
+    border: 1px solid #e98300;
+    border-radius: 1px;
+}
+/* .myButton {
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: #eb8d3c;
+    border-radius: 2px;
+} */
+
+    /* .myButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6));
+        background: -moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: -webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+        background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6',GradientType=0);
+        background-color: #1e62d0;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    } */
+
+
+
+    .navbar-custom {
+        background-color: #EA8300 !important;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+        color: rgba(255,255,255,.8)!important;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+        color: rgba(255,255,255,.5) !important;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+        color: #ffffff!important;
+}
+
+
+.navbar-nav.navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+}
+
+
+.card-title{
+    color:white;
+}
+.card-text{
+    color:black;
+    font-weight: bolder;
+}
+
+.card{
+    border-radius:25px;
+    box-shadow: 0px 8px 15px #C0C0C0;
+}
+
+.white-button
+{
+    background-color: white !important;
+    color:black !important;
+    border:1px solid black !important;
+}
+.btn{
+    background-color: #EA8300;
+    box-shadow: 0px 8px 15px #C0C0C0;
+    border-radius:25px;
+    border:none;
+   
+}
+
+
+.black-button
+{
+    background-color:black!important;
+    color:white !important;
+}
+
+.card-green
+{
+    padding:0.5rem;
+}
+
+
+.btn:hover { 
+    background-color: rgb(209, 160, 96);
+    box-shadow: 0px 8px 15px #C0C0C0;
+    border:none;
+    
+  }
+
+  .form-control{
+    box-shadow: 0px 8px 15px #C0C0C0;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.modal-backdrop
+{
+    opacity:0.8 !important;
+    color:white;
+}
+
+
+.modal-dialog {
+    top: 26px;
+}
+
+.modal-content{
+    border-radius: 25px;
+}
+
+
+@media screen and (min-width: 992px) {
+    .modal-lg{
+        max-width: 50%!important;
+    }
+  }
+
+.form-control{
+  box-shadow: 0px 8px 15px #C0C0C0 25px !important;
+  border-radius: 25px 25px !important;
+  -webkit-border-radius: 25px 25px !important;
+  -moz-border-radius: 25px 25px !important;
+  -ms-border-radius: 25px 25px !important;
+  border-radius: 25px !important;
+}
+
+
+.loader{
+     
+    top:45%;
+    left:55%;
+    width:12em;
+    height:4em;
+  }
+
+  .box{
+    position:absolute;
+    bottom:20%;
+    
+    width:1em;
+    height:1em;
+    background-color: transparent;
+    border:4px solid #EA8300;
+    border-radius:15%;
+    transform: rotate(50deg);
+    animation: climb 6s cubic-bezier(.79, 0, .47, .97) infinite;
+  }
+
+  .hill{
+      position: absolute;
+      width: 8em;
+      height: 0.3em;
+      left: 0%;
+      bottom: 43%;
+      background: #EA8300;
+      transform: rotate(140deg);
+         animation: seesaw 6s linear infinite;
+  }
+
+  @keyframes climb{
+    0%{
+      transform: translate(0, 0) rotate(50deg);
+    }
+
+    10%{
+        transform: translate(1.1em, -0.85em) rotate(140deg);
+    }
+    20%{
+        transform: translate(2.3em, -1.9em) rotate(228deg);
+    }
+    50%{
+        transform: translate(4.5em, 0.2em) rotate(470deg);
+    }
+60%{
+  transform: translate(3.7em, -0.5em) rotate(410deg);
+}
+70%{
+  transform: translate(2.4em, -1.9em) rotate(330deg); 
+}
+100%{
+  transform: translate(0, 0) rotate(50deg);
+}
+  }
+
+  @keyframes seesaw{
+      0%{
+          transform: rotate(140deg)
+        }
+14%{
+  transform: rotate(140deg)
+}
+37%{
+  transform:rotate(230deg)
+}
+65%{
+  transform:rotate(230deg)
+}
+70%{
+  transform:rotate(210deg)
+}
+80%{
+  transform:rotate(160deg);
+}
+85%{
+  transform:rotate(140deg);
+}
+100%{
+  transform:rotate(140deg);
+} 
+  } 
+
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    background-color: #EA8300;
+  
+    margin: 0px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  }
+  
+  @-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+  }
+  
+  @keyframes sk-rotateplane {
+    0% { 
+      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+    } 50% { 
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+    } 100% { 
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+  }
+
+  .custom-seesaw{
+      margin-left:60px;
+  }
+
+  
+  
+  .spinner1 > div {
+    width: 18px;
+    height: 18px;
+    background-color: #EA8300;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner1 .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner1 .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
+
+  .output_image {
+    height: 20px;
+  }
